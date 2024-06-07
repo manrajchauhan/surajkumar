@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+    --main-background: #f7f7f7;
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0%;
+    margin: 0;
+}
+
+a{
+  text-decoration: none;
+}
+
+body {
+  background:(var(--main-background));
+  font-family: HelveticaNeue, Helvetica Neue, helvetica, Sans-Serif;
+
+}
+
