@@ -4,7 +4,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
 export const metadata: Metadata = {
-  title: "Early Effects | Early Effects Engineering Pvt Ltd.",
+  title: "Early Effects | Early Effects Engineering",
   description: "Electronics",
 };
 

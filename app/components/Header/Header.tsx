@@ -23,15 +23,15 @@ export default function Header() {
             <div className="pr-6 border-r-2 border-transparent lg:border-gray-200">
               <Link href="/">
               <Image
-              src="/vercel.svg"
+              src="/logo.svg"
               alt="Brand Logo"
-              width={100}
-              height={24}
+              width={200}
+              height={100}
               priority
             />
               </Link>
             </div>
-            <ul className="hidden lg:flex items-center gap-8">
+            <ul className="hidden lg:flex items-center gap-4">
               <li>
                 <Link href="#">
                   <div className="flex items-center flex-wrap gap-2 group cursor-pointer">
@@ -44,12 +44,12 @@ export default function Header() {
                   </div>
                 </Link>
               </li>
-              <li className="hover:text-opacity-70 transition duration-200">
+              <li className="hover:text-opacity-70 transition duration-200 hover:bg-neutral-100 px-4 py-1 rounded-full">
                 <Link href="#">
                   Projects
                 </Link>
               </li>
-              <li className="hover:text-opacity-70 transition duration-200">
+              <li className="hover:text-opacity-70 transition duration-200 hover:bg-neutral-100 px-4 py-1 rounded-full">
                 <Link href="#">
                   Company
                 </Link>
@@ -66,15 +66,15 @@ export default function Header() {
                   </div>
                 </Link>
               </li>
-              <li className="hover:text-opacity-70 transition duration-200">
-                <Link href="#">
+              <li className="hover:text-opacity-70 transition duration-200 hover:bg-neutral-100 px-4 py-1 rounded-full">
+                <Link href="/blog">
                   Blog
                 </Link>
               </li>
             </ul>
           </div>
-          <Link href="#">
-            <div className="hidden lg:inline-block py-3 px-5 rounded-full  border border-gray-300 shadow text-sm font-semibold text-neutral-800 focus:ring focus:ring-neutral-800 transition duration-200 cursor-pointer">
+          <Link href="/contact">
+           <div className="hidden lg:inline-block py-3 px-5 rounded-full  border border-gray-300 shadow text-sm font-semibold text-neutral-800 focus:ring focus:ring-neutral-800 transition duration-200 cursor-pointer">
               GET IN TOUCH
             </div>
           </Link>
@@ -94,10 +94,10 @@ export default function Header() {
               <div className="flex items-center justify-between">
                 <Link href="#">
                 <Image
-              src="/vercel.svg"
+              src="/logo.svg"
               alt="Brand Logo"
-              width={100}
-              height={34}
+              width={150}
+              height={100}
               priority
             />
                 </Link>
@@ -143,12 +143,12 @@ export default function Header() {
                   </Link>
                 </li>
                 <li className="hover:text-opacity-70 transition duration-200">
-                  <Link href="#">
+                  <Link href="/blog">
                     Blog
                   </Link>
                 </li>
               </ul>
-              <Link href="#">
+              <Link href="/contact">
               <div className="block text-center py-3 px-5 rounded-full  border border-gray-300 shadow text-sm font-semibold text-neutral-800 focus:ring focus:ring-neutral-800 transition duration-200 cursor-pointer">
               GET IN TOUCH
             </div>

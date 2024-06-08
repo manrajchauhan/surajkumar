@@ -8,7 +8,7 @@ const Footer = () => {
                 <div className="flex flex-wrap -mx-4 mb-24">
                     <div className="w-full xl:w-4/12 px-4 mb-12 xl:mb-0">
                         <a className="inline-block" href="/">
-                            <Image className="block h-10" src="/vercel.svg" alt="" width={400} height={400}/>
+                            <Image className="block h-10" src="/logo.svg" alt="" width={400} height={400}/>
                         </a>
                     </div>
                     <div className="w-1/2 md:w-1/4 xl:w-2/12 px-4 mb-8 md:mb-0">
