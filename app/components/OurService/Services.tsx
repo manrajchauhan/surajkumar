@@ -52,17 +52,6 @@ const servicesData = [
     GoTo: '/system'
   },
   {
-    title: 'Computer Vision Development Services',
-    description: 'Integra Sources provides custom software development services for video and image analysis based on computer vision and artificial intelligence. Computer vision is one of the most useful technologies applied in many industries, from entertainment to manufacturing and healthcare. With...',
-    services: [
-      'Image and video processing',
-      'Face recognition',
-      'Edge computing',
-      'Object tracking'
-    ],
-    GoTo: '/vision'
-  },
-  {
     title: 'IoT Solutions',
     description: 'Looking to build the entire IoT solution in one company? We\'d glad to help! From smart gadgets to a Cloud infrastructure for managing connected...',
     services: [
