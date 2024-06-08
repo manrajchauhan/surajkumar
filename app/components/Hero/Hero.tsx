@@ -8,7 +8,7 @@ export default function Hero() {
     initial={{opacity:0, y:20}}
     whileInView={{opacity:1, y:0}}
     transition={{duration:1.0, delay:0.6}}
-     className='rounded-2xl px-4 md:px-14 pb-16 bg-center bg-no-repeat bg-cover relative' style={{ backgroundImage: "url('/img/hero.webp')" }}>
+     className='rounded-2xl px-4 md:px-14 pb-16 bg-center bg-no-repeat bg-cover relative' style={{ backgroundImage: "url('/img/hero1.jpg')" }}>
       <div className="pt-80">
         <motion.h1
          initial={{opacity:0, y:20}}
