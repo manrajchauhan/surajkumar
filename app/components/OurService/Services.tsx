@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const servicesData = [
   {
@@ -80,7 +81,11 @@ export default function Services() {
         <h1 className="font-medium text-6xl xs:text-8xl sm:text-10xl tracking-tighter mb-20">OUR EXPERTISE</h1>
         <div className="flex flex-wrap -mx-4">
           <div className="w-full lg:w-5/12 px-4 order-last lg:order-first">
-            <img className="block h-135 w-full max-w-lg mx-auto lg:mx-0 rounded-4xl object-cover" src="/img/service.jpeg" alt="service logo" />
+            <Image
+             src="/img/service.jpeg" alt="service logo"
+             width={200}
+             height={200}
+             className="block h-135 w-full max-w-lg mx-auto lg:mx-0 rounded-3xl object-cover"/>
           </div>
           <div className="w-full lg:w-7/12 px-4 mb-20 lg:mb-0 self-center">
             <div className="max-w-lg xl:max-w-none mx-auto lg:mr-0">

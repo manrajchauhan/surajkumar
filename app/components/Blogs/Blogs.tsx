@@ -18,34 +18,6 @@ const blogPosts = [
     title: 'Understanding Microcontrollers: A Beginner\'s Guide',
     link: '#'
   },
-  {
-    id: 3,
-    imgSrc: '/img/cube.png',
-    category: 'Communication Engineering',
-    title: 'The Evolution of Wireless Communication',
-    link: '#'
-  },
-  {
-    id: 4,
-    imgSrc: '/img/cube.png',
-    category: 'Communication Engineering',
-    title: 'Introduction to 5G Technology',
-    link: '#'
-  },
-  {
-    id: 5,
-    imgSrc: '/img/cube.png',
-    category: 'Robotics',
-    title: 'Advancements in Robotic Automation',
-    link: '#'
-  },
-  {
-    id: 6,
-    imgSrc: '/img/cube.png',
-    category: 'Robotics',
-    title: 'The Future of Humanoid Robots',
-    link: '#'
-  }
 ];
 
 export default function LatestPosts() {

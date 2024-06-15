@@ -1,8 +1,43 @@
-import React from 'react'
+'use client'
+import React, { useState, FormEvent, ChangeEvent } from 'react';
+import emailjs from 'emailjs-com';
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNumber: '',
+    subject: 'What can we help you with?',
+    message: ''
+  });
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    emailjs.sendForm('service_0buimpi', 'template_hj3krmh', e.target as HTMLFormElement, 'dh9BK8lYDA0kXVdrb')
+      .then((result) => {
+        console.log(result.text);
+        alert('Message sent successfully!');
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phoneNumber: '',
+          subject: 'What can we help you with?',
+          message: ''
+        });
+      }, (error) => {
+        console.log(error.text);
+        alert('Failed to send message. Please try again later.');
+      });
+  };
+
   return (
-        <section className="py-12 md:py-20 bg-coolGray-50">
+    <section className="py-12 md:py-20 bg-coolGray-50">
       <div className="mx-auto px-4">
         <div className="flex flex-wrap -mx-4">
           <div className="w-full lg:w-1/2 xl:w-5/12 px-4 mb-16 lg:mb-0">
@@ -19,8 +54,8 @@ export default function Contact() {
                 </div>
                 <div className="mt-6 sm:mt-0 sm:ml-6">
                   <span className="block text-lg font-medium mb-5">Drop us a line or send us an email.</span>
-                  <p className="text-lg text-neutral-900 mb-1">enquiry@earlyeffects.com</p>
-                  <span className="text-lg font-medium">help@earlyeffects.com</span>
+                  <p className="text-lg text-neutral-900 mb-1">contact@earlyeffects.com</p>
+                  {/* <span className="text-lg font-medium">help@earlyeffects.com</span> */}
                 </div>
               </div>
               <div className="sm:flex mb-10">
@@ -37,7 +72,7 @@ export default function Contact() {
               <div className="sm:flex">
                 <div className="flex h-12 w-12 items-center justify-center border border-coolGray-400 rounded-2xl">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M11.9989 13.4299C13.722 13.4299 15.1189 12.0331 15.1189 10.3099C15.1189 8.58681 13.722 7.18994 11.9989 7.18994C10.2758 7.18994 8.87891 8.58681 8.87891 10.3099C8.87891 12.0331 10.2758 13.4299 11.9989 13.4299Z" stroke="black" strokeWidth="1.5"></path>
+                    <path d="M11.9989 13.4299C13.722 13.4299 15.1189 12.0331 15.1189 13.4299C15.1189 10.3099C15.1189 8.58681 13.722 7.18994 11.9989 7.18994C10.2758 7.18994 8.87891 8.58681 8.87891 10.3099C8.87891 12.0331 10.2758 13.4299 11.9989 13.4299Z" stroke="black" strokeWidth="1.5"></path>
                     <path d="M3.62166 8.49C5.59166 -0.169998 18.4217 -0.159997 20.3817 8.5C21.5317 13.58 18.3717 17.88 15.6017 20.54C13.5917 22.48 10.4117 22.48 8.39166 20.54C5.63166 17.88 2.47166 13.57 3.62166 8.49Z" stroke="black" strokeWidth="1.5"></path>
                   </svg>
                 </div>
@@ -53,26 +88,73 @@ export default function Contact() {
           <div className="w-full lg:w-1/2 xl:w-7/12 px-4">
             <div className="max-w-lg lg:max-w-none mx-auto py-12 px-8 md:px-10 bg-white rounded-4xl">
               <h3 className="text-3xl tracking-tight mb-8">Contact Us</h3>
-              <form action="">
-                <input className="block w-full py-4 px-8 h-16 mb-6 text-coolGray-500 bg-white border border-coolGray-400 rounded-full" type="text" placeholder="First Name*" />
-                <input className="block w-full py-4 px-8 h-16 mb-6 text-coolGray-500 bg-white border border-coolGray-400 rounded-full" type="text" placeholder="Last Name*" />
-                <input className="block w-full py-4 px-8 h-16 mb-6 text-coolGray-500 bg-white border border-coolGray-400 rounded-full" type="email" placeholder="E-mail" />
-                <input className="block w-full py-4 px-8 h-16 mb-6 text-coolGray-500 bg-white border border-coolGray-400 rounded-full" type="text" placeholder="Phone number" />
+              <form onSubmit={handleSubmit}>
+                <input
+                  className="block w-full py-4 px-8 h-16 mb-6 text-coolGray-500 bg-white border border-coolGray-400 rounded-full"
+                  type="text"
+                  placeholder="First Name*"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  required
+                />
+                <input
+                  className="block w-full py-4 px-8 h-16 mb-6 text-coolGray-500 bg-white border border-coolGray-400 rounded-full"
+                  type="text"
+                  placeholder="Last Name*"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  required
+                />
+                <input
+                  className="block w-full py-4 px-8 h-16 mb-6 text-coolGray-500 bg-white border border-coolGray-400 rounded-full"
+                  type="email"
+                  placeholder="E-mail"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+                <input
+                  className="block w-full py-4 px-8 h-16 mb-6 text-coolGray-500 bg-white border border-coolGray-400 rounded-full"
+                  type="text"
+                  placeholder="Phone number"
+                  name="phoneNumber"
+                  value={formData.phoneNumber}
+                  onChange={handleChange}
+                />
                 <div className="relative">
                   <span className="absolute top-1/2 right-0 mr-10 transform -translate-y-1/2">
                     <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M1.33203 1.66439L5.9987 6.33105L10.6654 1.66439" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                     </svg>
                   </span>
-                  <select className="relative block w-full py-4 px-8 h-16 mb-6 text-coolGray-500 bg-transparent border border-coolGray-400 rounded-full appearance-none outline-none">
-                    <option selected>What can we help you with?</option>
-                    <option>Services</option>
-                    <option>Products</option>
+                  <select
+                    className="relative block w-full py-4 px-8 h-16 mb-6 text-coolGray-500 bg-transparent border border-coolGray-400 rounded-full appearance-none outline-none"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                  >
+                    <option disabled value="What can we help you with?">What can we help you with?</option>
+                    <option value="Services">Services</option>
+                    <option value="Products">Products</option>
                   </select>
                 </div>
-                <textarea className="w-full h-52 py-5 px-8 text-coolGray-500 bg-white border border-coolGray-400 rounded-3xl resize-none mb-8" placeholder="Message" rows={3}></textarea>
+                <textarea
+                  className="w-full h-52 py-5 px-8 text-coolGray-500 bg-white border border-coolGray-400 rounded-3xl resize-none mb-8"
+                  placeholder="Message"
+                  rows={3}
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                ></textarea>
                 <div className="sm:text-right">
-                  <button className="inline-block w-full sm:w-auto py-5 px-8 sm:px-24 text-center font-medium text-white leading-none bg-black hover:bg-neutral-50 hover:border hover:border-neutral-900 hover:text-neutral-900 rounded-full transition duration-150" type="submit">Send message</button>
+                  <button
+                    className="inline-block w-full sm:w-auto py-5 px-8 sm:px-24 text-center font-medium text-white leading-none bg-black hover:bg-neutral-50 hover:border hover:border-neutral-900 hover:text-neutral-900 rounded-full transition duration-150"
+                    type="submit"
+                  >
+                    Send message
+                  </button>
                 </div>
               </form>
             </div>
@@ -80,5 +162,5 @@ export default function Contact() {
         </div>
       </div>
     </section>
-  )
+  );
 }
